@@ -35,18 +35,7 @@ $(document).keypress(function(e) {
 });
 //Enter key:================================================
 
-//Click Button:
-$ (document).on("click", function() {
 
-	console.log(this);
-
-	var whichButton = $ (this).attr("data-name");
-	console.log("button clicked");
-	console.log($ (this).attr("data-name"));
-	makeGif(whichButton);
-
-});
-//Click Button:============================================
 
 });
 //Document ready===========================================
@@ -65,6 +54,16 @@ function makeButtons() {
 		a.text(currentArray[i]);
 		$ ("#buttonsHere").append(a);
 	}
+
+	//Click Button:
+	$ (".animal").on("click", function() {
+
+		console.log(this);
+
+		makeGif(this);
+
+	});
+	//Click Button:============================================
 }
 //makeButtons:==================================================
 
@@ -76,8 +75,17 @@ function makeGif(gifButton) {
 		method: "GET"
 	})
 	.done(function(gifInfo) {
-		var imageRating = gifInfo.data[0].rating;
-		console.log(imageRating);
+		
+		for(var i = 0; i < gifInfo.data.length; i++) {
+			var imageRating = gifInfo.data[i].rating;
+			console.log("image rating: " + imageRating);
+			var stillUrl = gifInfo.data[i].images.fixed_height_small_still.url;
+			console.log("still image url: " + stillUrl);
+			var animateUrl = gifInfo.data[i].images.fixed_height_small.url;
+			console.log("animated url: " + animateUrl);
+		}
+
+
 	});
 }
 //makeGif:======================================================

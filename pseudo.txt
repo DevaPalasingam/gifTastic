@@ -1,0 +1,13 @@
+-beginning code that puts up all the buttons
+
+-Enter key:
+	-record what was typed in
+		-clears the search bar
+	-put up a new button
+
+
+-Clicking on gif code
+
+
+-Functions:
+	-makeButtons()

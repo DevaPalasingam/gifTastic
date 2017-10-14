@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#buttonsHere {
+	text-align: left;
+}
+
+button {
+	margin: 5px;
+}
+
+#textInput {
+	text-align: left;
+}

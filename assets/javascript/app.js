@@ -35,7 +35,29 @@ $(document).keypress(function(e) {
 });
 //Enter key:================================================
 
+		//Click gif: this function will toggle between still or animated gif when you click on the gif
+		$ (document).on("click", ".gif", function() {
+			console.log("clicked something");
+			if ($(this).hasClass("gif")) {
 
+				var state = $(this).attr("data-state");
+
+				//if the gif is still, animate it
+				if (state === "still") {
+					$(this).attr("src", $(this).attr("data-animate"));
+					$(this).attr("data-state", "animate");
+					console.log("animating gif");
+				}
+				//if the gif is animated, still it
+				else {
+					$(this).attr("src", $(this).attr("data-still"));
+					$(this).attr("data-state", "still");
+					console.log("stilling gif");
+				}
+
+			}
+		});
+		//Click gif:===========================================
 
 });
 //Document ready===========================================
@@ -121,24 +143,24 @@ function makeGif(gifButton) {
 		//gifLoop:==========================================
 
 
-		//Click gif: this function will toggle between still or animated gif when you click on the gif
-		$ (".gif").on("click", function() {
-			var state = $(this).attr("data-state");
+		// //Click gif: this function will toggle between still or animated gif when you click on the gif
+		// $ (".gif").on("click", function() {
+		// 	var state = $(this).attr("data-state");
 
-			//if the gif is still, animate it
-			if (state === "still") {
-				$(this).attr("src", $(this).attr("data-animate"));
-				$(this).attr("data-state", "animate");
-				console.log("animating gif");
-			}
-			//if the gif is animated, still it
-			else {
-				$(this).attr("src", $(this).attr("data-still"));
-				$(this).attr("data-state", "still");
-				console.log("stilling gif");
-			}
-		});
-		//Click gif:===========================================
+		// 	//if the gif is still, animate it
+		// 	if (state === "still") {
+		// 		$(this).attr("src", $(this).attr("data-animate"));
+		// 		$(this).attr("data-state", "animate");
+		// 		console.log("animating gif");
+		// 	}
+		// 	//if the gif is animated, still it
+		// 	else {
+		// 		$(this).attr("src", $(this).attr("data-still"));
+		// 		$(this).attr("data-state", "still");
+		// 		console.log("stilling gif");
+		// 	}
+		// });
+		// //Click gif:===========================================
 	});
 }
 //makeGif:======================================================

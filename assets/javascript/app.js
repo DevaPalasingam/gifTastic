@@ -93,6 +93,15 @@ function makeGif(gifButton) {
 			var animateUrl = gifInfo.data[i].images.fixed_height.url;
 			console.log("animated url: " + animateUrl);
 			
+			
+			// var rowDiv = $("<div>");
+			// rowDiv.attr("class", "row");
+			// $ ("#gifCol").prepend(rowDiv);
+
+			//creating a div tag	
+			var divTag = $("<div>");
+			divTag.attr("class", "col-xs-4");
+
 
 			//this code makes an image tag and gives it the data from giphy
 			var imageTag = $("<img>");
@@ -102,12 +111,15 @@ function makeGif(gifButton) {
 			imageTag.attr("data-state", "still");
 			imageTag.attr("class", "gif");
 			imageTag.attr("rating", imageRating);
-			$ ("#gifCol").prepend(imageTag);
 
+			//creating a p tag with the image rating
 			var p = $("<p>");
 			p.text("Rated " + imageRating.toUpperCase());
-			$ ("#gifCol").prepend(p);
 
+
+			divTag.append(p);
+			divTag.append(imageTag);
+			$ ("#gifCol").prepend(divTag);
 
 		}
 		//gifLoop:==========================================

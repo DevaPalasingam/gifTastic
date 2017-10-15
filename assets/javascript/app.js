@@ -93,10 +93,6 @@ function makeGif(gifButton) {
 			var animateUrl = gifInfo.data[i].images.fixed_height.url;
 			console.log("animated url: " + animateUrl);
 			
-			
-			// var rowDiv = $("<div>");
-			// rowDiv.attr("class", "row");
-			// $ ("#gifCol").prepend(rowDiv);
 
 			//creating a div tag	
 			var divTag = $("<div>");
@@ -109,7 +105,7 @@ function makeGif(gifButton) {
 			imageTag.attr("data-still", stillUrl);
 			imageTag.attr("data-animate", animateUrl);
 			imageTag.attr("data-state", "still");
-			imageTag.attr("class", "gif");
+			imageTag.attr("class", "gif img-responsive");
 			imageTag.attr("rating", imageRating);
 
 			//creating a p tag with the image rating
@@ -125,6 +121,24 @@ function makeGif(gifButton) {
 		//gifLoop:==========================================
 
 
+		//Click gif: this function will toggle between still or animated gif when you click on the gif
+		$ (".gif").on("click", function() {
+			var state = $(this).attr("data-state");
+
+			//if the gif is still, animate it
+			if (state === "still") {
+				$(this).attr("src", $(this).attr("data-animate"));
+				$(this).attr("data-state", "animate");
+				console.log("animating gif");
+			}
+			//if the gif is animated, still it
+			else {
+				$(this).attr("src", $(this).attr("data-still"));
+				$(this).attr("data-state", "still");
+				console.log("stilling gif");
+			}
+		});
+		//Click gif:===========================================
 	});
 }
 //makeGif:======================================================

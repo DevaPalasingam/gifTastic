@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.container {
+	margin-bottom: 10px;
+}
+
 #buttonsHere {
 	text-align: left;
 }
@@ -16,7 +20,7 @@ button {
 }
 
 .gif {
-	padding: 5px;
+	padding: 1px;
 }
 
 p {

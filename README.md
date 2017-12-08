@@ -2,6 +2,8 @@
 
 Gif-generator. Look up whatever gif you want.
 
+Demo: https://devapalasingam.github.io/gifTastic/
+
 ![Alt text](/assets/images/trooper.jpg?raw=true "gifTastic")
 
 
